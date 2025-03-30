@@ -1,40 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi GitHub Page</title>
-    <style>
-        .banner {
-            width: 100%;
-            height: auto;
-            display: block;
+     <style>
+
+        .background {
+            background-image: url('banner coda.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 50px;
+            text-align: center;
+            min-height: 100vh; /* Asegura que cubra toda la pantalla */
         }
+
+        a {
+            color: yellow;
+        }
+        body {
+    color: whitesmoke; /* Cambia a otro color si prefieres */
+        }
+        ul {
+    display: inline-block; /* Hace que la lista se comporte como un bloque en línea */
+    text-align: left; /* Mantiene la alineación del texto dentro de la lista */
+    margin: 0 auto; /* Centra la lista horizontalmente */
+    padding: 0; /* Elimina el padding predeterminado */
+}
+
     </style>
 </head>
 <body>
-    <img src="banner coda.jpg" width="300" height="200" class="banner">
-    <h1>¡Bienvenido a mi página!</h1>
-    <p>Esta página está creada con GitHub Pages.</p>
 
-    <h2>Automatización de pruebas con Selenium y Python</h2>
-    <p>Realicé un test de automatización sobre la página IMDB como parte de un examen de la Comunidad QA de BairesQA.</p>
-    
-    <h3>¿Qué hace el script?</h3>
-    <ul>
-        <li>Automatiza la búsqueda de películas en IMDB.</li>
-        <li>Extrae el título, ranking y géneros de una película.</li>
-        <li>Guarda los resultados en archivos de texto.</li>
-    </ul>
+    <div class="background">
+        <h1>¡Bienvenido a mi Sitio!</h1>
+        <h2>Mi nombre es Jorge Peyrano</h2>
+        <p>Esta página está creada con GitHub Pages.</p>
 
-    <h3>Herramientas utilizadas:</h3>
-    <ul>
-        <li>Python 3.11.2</li>
-        <li>Selenium</li>
-        <li>Pytest</li>
-        <li>ChromeDriver</li>
-    </ul>
+        <h2>Automatización de pruebas con Selenium y Python</h2>
+        <p>Realicé un test de automatización sobre la página IMDB como parte de un examen de la Comunidad QA de BairesQA.</p>
+        
+        <h3>¿Qué hace el script?</h3>
+        <ul>
+            <li>Automatiza la búsqueda de películas en IMDB.</li>
+            <li>Extrae el título, ranking y géneros de una película.</li>
+            <li>Guarda los resultados en archivos de texto.</li>
+        </ul>
 
-    <h3>Instrucciones de ejecución:</h3>
-    <p>Para más detalles sobre la ejecución del script, consulta el <a href="https://github.com/Japeyr/TesteoBairesQA/blob/master/README.md">README</a>.</p>
+        <h3>Herramientas utilizadas:</h3>
+        <ul>
+            <li>Python 3.11.2</li>
+            <li>Selenium</li>
+            <li>Pytest</li>
+            <li>ChromeDriver</li>
+        </ul>
+
+        <h3>Instrucciones de ejecución:</h3>
+        <p>Para más detalles sobre la ejecución del script, consulta el 
+            <a href="https://github.com/Japeyr/TesteoBairesQA/blob/master/README.md">README</a>.
+        </p>
+        <p>Para ver como funciona ver el <a href="https://youtu.be/vO0EVSF5Vn4">VIDEO</a></p>
+    </div>
 </body>
 </html>
-
