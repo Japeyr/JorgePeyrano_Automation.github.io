@@ -1,66 +1,559 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mi GitHub Page</title>
-     <style>
-
-        .background {
-            background-image: url('banner coda.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 50px;
-            text-align: center;
-            min-height: 100vh; /* Asegura que cubra toda la pantalla */
+    <style>
+        html {
+            scroll-behavior: smooth;
         }
 
-        a {
-            color: yellow;
-        }
         body {
-    color: whitesmoke; /* Cambia a otro color si prefieres */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: whitesmoke;
+            background: url('banner coda.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
         }
-        ul {
-    display: inline-block; /* Hace que la lista se comporte como un bloque en línea */
-    text-align: left; /* Mantiene la alineación del texto dentro de la lista */
-    margin: 0 auto; /* Centra la lista horizontalmente */
-    padding: 0; /* Elimina el padding predeterminado */
-}
 
+        /* Menú fijo con dropdown */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.1em;
+            user-select: none;
+        }
+
+            nav a, .dropbtn {
+                color: yellow;
+                text-decoration: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                display: inline-block;
+                transition: color 0.3s;
+            }
+
+                nav a:hover, .dropdown:hover .dropbtn {
+                    color: #00ffff;
+                }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0,0,0,0.9);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+            border-radius: 6px;
+            z-index: 1001;
+            text-align: left;
+            margin-top: 5px;
+        }
+
+            /* Dropdown links */
+            .dropdown-content a {
+                color: yellow;
+                padding: 10px 15px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #00ffff;
+                    color: black;
+                }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            margin: 80px auto 40px;
+            max-width: 900px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #ffcc00;
+            border-bottom: 1px solid #ffcc00;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 20px;
+            color: #00ffff;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .flex-item {
+            flex: 1 1 45%;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .execution {
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .proyecto {
+            margin-bottom: 60px;
+            padding: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .flex-item {
+                flex: 1 1 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+                nav a, .dropbtn {
+                    display: block;
+                    margin: 5px 0;
+                }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: transparent;
+                min-width: auto;
+                margin-top: 0;
+            }
+
+                .dropdown-content a {
+                    color: #00ffff;
+                    padding-left: 30px;
+                }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="background">
-        <h1>¡Bienvenido a mi Sitio!</h1>
+    <nav>
+        <a href="#bienvenida">Inicio</a>
+
+        <div class="dropdown">
+            <a href="#testing-manual" class="dropbtn">Testing Manual</a>
+            <div class="dropdown-content">
+                <a href="#proyecto1">Proyecto 1 - Vitalogy</a>
+                <a href="#proyecto2">Proyecto 2 - API con Postman</a>
+                <a href="#proyecto3">Proyecto 3 - Base de Datos SQL Server</a>
+                <a href="#proyecto4">Proyecto 4 - Casos de Prueba</a>
+            </div>
+        </div>
+
+        <a href="#testing-automation">Testing Automation</a>
+
+        <div class="dropdown">
+            <a href="#programacion" class="dropbtn">Programación</a>
+            <div class="dropdown-content">
+                <a href="#proyecto5">Sitio Web de Veterinaria</a>
+                <a href="#proyecto6">Sistema de Gestión de Médicos y Turnos</a>
+                <a href="#proyecto7">Web Scraping de Supermercado</a>
+            </div>
+        </div>
+
+    </nav>
+
+    <section id="bienvenida">
+        <div class="proyecto">
+        <h1>¡Bienvenidos a mi portafolio!</h1>
         <h2>Mi nombre es Jorge Peyrano</h2>
-        <p>Esta página está creada con GitHub Pages.</p>
-
-        <h2>Automatización de pruebas con Selenium y Python</h2>
-        <p>Realicé un test de automatización sobre la página IMDB como parte de un examen de la Comunidad QA de BairesQA.</p>
-        
-        <h3>¿Qué hace el script?</h3>
+        <p>Soy un profesional apasionado por el aprendizaje continuo y en una emocionante transformación hacia el mundo IT. Mi compromiso con la tecnología me ha llevado a especializarme en Testing de Software y Automatización de Procesos, complementando mi sólida base en programación y sistemas.</p>
+        <h3>Testing Manual</h3>
+        <p>Mi incursión en el testing de software ha sido clave en mi desarrollo profesional. Como especialista en Testing de Software, me dedico a asegurar la calidad de los proyectos y a entregar productos sin errores. Mis habilidades incluyen:</p>
         <ul>
-            <li>Automatiza la búsqueda de películas en IMDB.</li>
-            <li>Extrae el título, ranking y géneros de una película.</li>
-            <li>Guarda los resultados en archivos de texto.</li>
+            <li>Elaboración de planes de prueba y diseño/ejecución de casos de prueba.</li>
+            <li>Análisis de requerimientos (historias de usuario, casos de uso) para una comprensión profunda de las funcionalidades.</li>
+            <li>Reporte de defectos y propuestas de mejoras con un enfoque proactivo en la calidad.</li>
+            <li>Dominio de técnicas de testing (partición de equivalencias, análisis de valores límite, tablas de decisión, casos de uso).</li>
+            <li>Pruebas de APIs con Postman (operaciones CRUD).</li>
+            <li>Conocimiento en metodologías ágiles como Scrum y Kanban.</li>
         </ul>
-
-        <h3>Herramientas utilizadas:</h3>
+        <h3>Testing Automation</h3>
+        <p>Mi entusiasmo por la eficiencia y la optimización me impulsa a la automatización. He desarrollado habilidades en:</p>
         <ul>
-            <li>Python 3.11.2</li>
-            <li>Selenium</li>
-            <li>Pytest</li>
-            <li>ChromeDriver</li>
+            <li>Automatización de procesos con Python y Selenium para optimizar pruebas y análisis funcionales.</li>
+            <li>Mi objetivo es continuar profundizando en la automatización de pruebas, buscando siempre nuevos desafíos para mejorar la eficiencia y la calidad en los proyectos.</li>
         </ul>
-
-        <h3>Instrucciones de ejecución:</h3>
-        <p>Para más detalles sobre la ejecución del script, consulta el 
-            <a href="https://github.com/Japeyr/TesteoBairesQA/blob/master/README.md">README</a>.
+        <h3>Programación</h3>
+        <p>
+            Mi sólida formación en programación y sistemas me permite entender cómo funcionan las cosas "detrás de escena". Estoy listo para aplicar mis conocimientos en una variedad de tecnologías y lenguajes:
+            <ul>
+                <li>Análisis Funcional y Testing.</li>
+                <li>Lenguajes: C, C#, Visual Basic, Python, PHP, JavaScript.</li>
+                <li>Tecnologías web: HTML5, CSS3.</li>
+                <li>Bases de datos: MySQL y SQL Server (gestión y consultas SQL).</li>
+                <li>Frameworks: Django, Bootstrap 5, Selenium.</li>
+            </ul>
         </p>
-        <p>Para ver como funciona ver el <a href="https://youtu.be/vO0EVSF5Vn4">VIDEO</a></p>
-    </div>
+        <p>Soy una persona organizada, adaptable y enfocada en objetivos. Disfruto del trabajo en equipo y valoro la colaboración para lograr resultados impactantes. Siempre estoy buscando el próximo desafío y nuevas formas de mejorar.</p>
+        <p>Este es mi perfil de LinkedIn: <a href="www.linkedin.com/in/jorge-peyrano">LinkedIn</a></p>
+        </div>
+    </section>
+
+    <section id="testing-manual">
+        <h2>Testing Manual</h2>
+
+        <div id="proyecto1" class="proyecto">
+            <h3>Testeo del sitio Vitalogy</h3>
+            <p>Este proyecto muestra un enfoque completo en el testing manual de un sitio web, abarcando la planificación, el diseño y la ejecución de pruebas.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hice?</h3>
+                    <ul>
+                        <li>Elaboré un plan de pruebas estructurado.</li>
+                        <li>Redacté y analicé historias de usuario.</li>
+                        <li>Diseñé casos de prueba específicos.</li>
+                        <li>Ejecuté casos de prueba e identifiqué defectos.</li>
+                        <li>Generé reportes de defectos y sugerí mejoras.</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Free Mind 1.1 (mapas conceptuales)</li>
+                        <li>Word</li>
+                        <li>Notion</li>
+                        <li>Excel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones para ver el trabajo:</h3>
+                <p>
+                    Para más detalles sobre el testeo del sitio Vitalogy, click en el siguiente link de
+                    <a href="https://peppermint-perigee-9b6.notion.site/Proyecto-1-Vitalogy-681809f8407d40d9af45c832d9ccc47e">Notion</a>.
+                </p>
+            </div>
+        </div>
+
+        <div id="proyecto2" class="proyecto">
+            <h3>Pruebas de API con Postman sobre la API Swagger Petstore</h3>
+            <p>En este proyecto, validé la funcionalidad de una API mediante la ejecución de pruebas directas.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hice?</h3>
+                    <ul>
+                        <li>Realicé pruebas de APIs utilizando operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para interactuar con la API.</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Postman</li>
+                        <li>Notion</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones para ver el trabajo:</h3>
+                <p>
+                    Para más detalles sobre el trabajo de pruebas de Api con Postman hacer click
+                    <a href="https://peppermint-perigee-9b6.notion.site/Proyecto-2-Pruebas-de-Api-con-Postman-sobre-Api-Swagger-Petstore-d7b5a8a1869141e59daf81d0e3c52da0">AQUI</a>.
+                </p>
+            </div>
+        </div>
+
+        <div id="proyecto3" class="proyecto">
+            <h3>Base de Datos con SQL Server</h3>
+            <p>Este proyecto se centró en la implementación y gestión de una base de datos, asegurando la integridad y accesibilidad de la información.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hice?</h3>
+                    <ul>
+                        <li>Diseñé un modelo entidad-relación extendido (EER).</li>
+                        <li>Implementé una base de datos completa para gestionar información de pacientes, médicos, citas, tratamientos, facturación e historial médico.</li>
+                        <li>Creé las tablas necesarias e inserté registros para escenarios realistas.</li>
+                        <li>Realicé consultas SQL avanzadas (SELECT, WHERE, JOINS, GROUP BY, funciones de agregación).</li>
+                        <li>Desarrollé stored procedures para reportes de facturación, manejo de citas y cálculo de costos.</li>
+                        <li>Implementé un trigger automático para mantener el historial médico actualizado.</li>
+                        <li>Creé vistas para simplificar la consulta de datos complejos.</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Postman</li>
+                        <li>SQL Server 2019</li>
+                        <li>Notion</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones para ver el trabajo:</h3>
+                <p>
+                    Para más detalles sobre el trabajo la Base de Datos hacer click
+                    <a href="https://peppermint-perigee-9b6.notion.site/Proyecto-3-Base-de-Datos-con-SQL-Server-76eafeef20394c5c99d248e93003abe6">AQUI</a>.
+                </p>
+            </div>
+        </div>
+
+        <div id="proyecto4" class="proyecto">
+            <h3>Derivación de Casos de Pruebas de Caso de Uso</h3>
+            <p>En este proyecto, apliqué diversas técnicas de análisis y documentación para derivar casos de prueba a partir de casos de uso.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hice?</h3>
+                    <ul>
+                        <li>Creé diagramas UML.</li>
+                        <li>Documenté flujos normales y alternativos.</li>
+                        <li>Definí reglas de negocio.</li>
+                        <li>Apliqué partición de equivalencias para optimizar el diseño de pruebas.</li>
+                        <li>Derivé casos de prueba con sus datos de entrada.</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Herramientas de diagramación</li>
+                        <li>Notion</li>
+                        <li>Word</li>
+                        <li>Documentación General</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones para ver el trabajo:</h3>
+                <p>
+                    Para más detalles del trabajo de Derivación de Casos de Prueba de Casos de Uso, hacer click
+                    <a href="https://peppermint-perigee-9b6.notion.site/Proyecto-4-Derivaci-n-de-Casos-de-Pruebas-de-Caso-de-Uso-1080dd8ce001807c9412c49119d9df48">AQUI</a>.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="testing-automation">
+        <h2>Testing Automation</h2>
+
+        <div class="proyecto">
+            <h3>Automatización de pruebas con Selenium y Python</h3>
+            <p>Realicé un test de automatización sobre la página IMDB como parte de un examen de la Comunidad QA de BairesQA.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hace el script?</h3>
+                    <ul>
+                        <li>Automatiza la búsqueda de películas en IMDB.</li>
+                        <li>Extrae el título, ranking y géneros de una película.</li>
+                        <li>Guarda los resultados en archivos de texto.</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Python 3.11.2</li>
+                        <li>Selenium</li>
+                        <li>Pytest</li>
+                        <li>ChromeDriver</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones de ejecución:</h3>
+                <p>
+                    Para más detalles sobre la ejecución del script, consulta el
+                    <a href="https://github.com/Japeyr/TesteoBairesQA/blob/master/README.md">README</a>.
+                </p>
+                <p>
+                    Para ver cómo funciona ver el
+                    <a href="https://youtu.be/vO0EVSF5Vn4">VIDEO</a>.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="programacion">
+        <h2>Programación en General</h2>
+        <div id="proyecto5" class="proyecto">
+            <h3>Sitio Web de Veterinaria</h3>
+            <p>Este proyecto es una página web para una veterinaria que desarrollé durante mis estudios de Análisis de Sistemas. A lo largo del tiempo, el proyecto ha evolucionado significativamente, incorporando nuevas tecnologías y funcionalidades.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hice?</h3>
+                    <ul>
+                        <li>La versión inicial de la página web fue creada utilizando únicamente HTML. Esta versión básica sirvió como punto de partida para el desarrollo posterior.</li>
+                        <li>Tablas y CSS: Posteriormente, la página fue mejorada con el uso de tablas para la organización del contenido y la incorporación de CSS para estilizar los elementos.</li>
+                        <li>HTML5 y CSS3: Con el tiempo, reacondicioné el proyecto utilizando HTML5 y CSS3, adoptando las mejores prácticas y estándares modernos de desarrollo web.</li>
+                        <li>Carrito de Compras con Django: Después de completar un curso de Python en el que aprendí Django, decidí integrar un carrito de compras para productos. Esta funcionalidad permite a los usuarios seleccionar y comprar productos directamente desde la página web.</li>
+                        <li>Simulé la creación de la factura de compra que se descarga en pdf</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Pychamp</li>
+                        <li>Python</li>
+                        <li>Reportlab</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>Boostrapt 4</li>
+                        <li>Django</li>
+                        <li>SQLite</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones para ver el trabajo:</h3>
+                <p>
+                    Para más detalles del trabajo del Sitio Web de la Veterinaria, hacer click
+                    <a href="https://github.com/Japeyr/Veterinaria">AQUI</a>.
+                </p>
+            </div>
+        </div>
+
+        <div id="proyecto6" class="proyecto">
+            <h3>Sistema de Gestión de Médicos y Turnos</h3>
+            <p>En este proyecto utilicé el Modelo de Entidad-Relación del Proyecto de Testing Manual de Base de Datos para crear un programa que manejara turnos, médicos, pacientes, tratamientos y facturación.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hice?</h3>
+                    <ul>
+                        <li>Gestión de pacientes y médicos.</li>
+                        <li>Gestión de tratamientos.</li>
+                        <li>Gestión de citas.</li>
+                        <li>Historial médico.</li>
+                        <li>Facturación y tratamientos pendientes</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Visual Studio Code 2022</li>
+                        <li>C#</li>
+                        <li>Limq</li>
+                        <li>WPF</li>
+                        <li>SQL Server</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones para ver el trabajo:</h3>
+                <p>
+                    Para más detalles del Sisteme de Salud, hacer click
+                    <a href="https://github.com/Japeyr/SistemaSalud">AQUI</a>.
+                </p>
+            </div>
+        </div>
+
+        <div id="proyecto7" class="proyecto">
+            <h3>Web Scraping de Supermercado</h3>
+            <p>En este proyecto realiza Web Scraping en un sitio de un supermercado utilizando Python. Extrae información clave de los productos.</p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hice?</h3>
+                    <ul>
+                        <li>Extraigo nombres de productos.</li>
+                        <li>Extraigo el precio de cada producto.</li>
+                        <li>Extraigo el número de pagina de donde se encuentra el producto.</li>
+                        <li>Guardo los datos en un archivo Excell por pestañas de acuerdo a la sección a la que pertenece el producto.</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Pychamp</li>
+                        <li>Python</li>
+                        <li>Pandas</li>
+                        <li>Beautiful Soup (BS4)</li>
+                        <li>Lxml</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones para ver el trabajo:</h3>
+                <p>
+                    Para más detalles del Programa de Web Scrapin, hacer click
+                    <a href="https://github.com/Japeyr/web_scraping_supermercado">AQUI</a>.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
 </body>
 </html>
+
+
+
+
+
