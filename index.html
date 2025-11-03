@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -196,7 +196,13 @@
             </div>
         </div>
 
-        <a href="#testing-automation">Testing Automation</a>
+        <div class="dropdown">
+            <a href="#testing-automation">Testing Automation</a>
+            <div class="dropdown-content">
+                <a href="#proyectoauto1">Baires QA</a>
+                <a href="#proyectoauto2">Space & Beyond</a>
+            </div>
+        </div>
 
         <div class="dropdown">
             <a href="#programacion" class="dropbtn">Programación</a>
@@ -395,7 +401,7 @@
     <section id="testing-automation">
         <h2>Testing Automation</h2>
 
-        <div class="proyecto">
+        <div class="proyecto" id="proyectoauto1">
             <h3>Automatización de pruebas con Selenium y Python</h3>
             <p>Realicé un test de automatización sobre la página IMDB como parte de un examen de la Comunidad QA de BairesQA.</p>
 
@@ -429,6 +435,52 @@
                 <p>
                     Para ver cómo funciona ver el
                     <a href="https://youtu.be/vO0EVSF5Vn4">VIDEO</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="proyecto" id="proyectoauto2">
+            <h3>Automatización de pruebas con Selenium y Python</h3>
+            <p>Realicé un test de automatización sobre la página <a href="https://demo.testim.io/">Space & Beyond</a> en donde automaticé la validación del flujo de login y reserva de planetas. El sistema está diseñado de forma modular y automatiza más de 240 combinaciones de casos de prueba, validando entradas con criterios de valores límite y partición de equivalencias.
+Además, aprovecha multiprocesamiento en paralelo (3 hilos simultáneos) para optimizar tiempos y generar resultados tanto en Excel como en archivos .txt.
+ </p>
+
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>¿Qué hace el script?</h3>
+                    <ul>
+                        <li>Ingresa los distintos escenarios para el Login</li>
+                        <li>Ingresa los distintos escenarios para reservar planetas.</li>
+                        <li>Guarda los resultados en archivos de texto.</li>
+                        <li>Guarda los resultados en archivo Excel</li>
+                        <li>Realiza el trabajo en paralelo de a 3 hilos</li>
+                    </ul>
+                </div>
+
+                <div class="flex-item">
+                    <h3>Herramientas utilizadas:</h3>
+                    <ul>
+                        <li>Python 3.11.2</li>
+                        <li>Selenium</li>
+                        <li>Openpyxl</li>
+                        <li>ChromeDriver</li>
+                        <li>Glob</li>
+                        <li>Re</li>
+                        <li>Multiprocesing</li>
+                        <li>Os</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="execution">
+                <h3>Instrucciones de ejecución:</h3>
+                <p>
+                    Para más detalles sobre la ejecución del script, consulta el
+                    <a href="hhttps://github.com/Japeyr/Automatizacion-Space-and-Beyond/blob/master/README.md">README</a>.
+                </p>
+                <p>
+                    Para ver cómo funciona ver el
+                    <a href="https://youtu.be/EAyMBtqCCcA">VIDEO</a>.
                 </p>
             </div>
         </div>
